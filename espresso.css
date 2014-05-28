@@ -1,0 +1,21 @@
+body
+{
+background:url('Roasted_coffee_beans.jpg');
+background-color:#cccccc;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+img {
+    vertical-align: middle;
+    max-height: 50px;
+}
+
+input {
+	font-size:28px;
+	margin-bottom:0px;
+}

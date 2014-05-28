@@ -1,0 +1,7 @@
+Monday,5,30,AM,true,(Steam)
+Tuesday,5,30,AM,true,(Steam)
+Wednesday,5,15,AM,true,(Steam)
+Thursday,5,30,AM,true,(Steam)
+Friday,6,30,AM,true,(Steam)
+Saturday,8,00,AM,false,(Steam)
+Sunday,8,00,AM,false,(Steam)
