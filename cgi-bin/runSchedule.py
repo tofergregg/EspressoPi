@@ -8,7 +8,7 @@ import sys
 days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 
 def powerOn(pin):
-	output = subprocess.check_output(["/home/pi/www/cgi-bin/CheckOnLED.py",str(pin)])
+	output = subprocess.check_output(["/home/pi/www/EspressoPi/cgi-bin/CheckOnLED.py",str(pin)])
 	if "On" in output:
 		return "On"
 	elif "Off" in output:
@@ -47,17 +47,17 @@ while (1):
 					onLED_status = powerOn(4)
 					print "ON status is: ",onLED_status
 					if onLED_status != "On": # turn it on
-						print subprocess.check_output(["/home/pi/www/cgi-bin/TurnOnVivaldi.py"])
+						print subprocess.check_output(["/home/pi/www/EspressoPi/cgi-bin/TurnOnVivaldi.py"])
 						# now check the steam LED
 						steamLED_status = powerOn(17)
 						print "Steam is: ",steamLED_status
 						if day[5]=="(Steam)": # we want steam
 							if steamLED_status == "Off":
-								print subprocess.check_output(["/home/pi/www/cgi-bin/TurnOnSteamButton.py"])
+								print subprocess.check_output(["/home/pi/www/EspressoPi/cgi-bin/TurnOnSteamButton.py"])
 								print "Turning on Steam"
 						else: # no steam
 							if steamLED_status != "Off":
-								print subprocess.check_output(["/home/pi/www/cgi-bin/TurnOffSteamButton.py"])
+								print subprocess.check_output(["/home/pi/www/EspressoPi/cgi-bin/TurnOffSteamButton.py"])
 								print "Turning off Steam"
 					time.sleep(120) # sleep until we're past today's scheduled time to start
 	print str(today).split('.')[:-1][0]
