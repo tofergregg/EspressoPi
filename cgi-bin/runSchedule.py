@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import datetime
 import time
@@ -23,7 +23,7 @@ while (1):
 	dayOfWeek = days[today.weekday()]
 
 	schedule = []
-	with open("times.txt","r") as f:
+	with open("/home/pi/www/EspressoPi/cgi-bin/times.txt","r") as f:
 		for line in f:
 			line = line[:-1]
 			schedule.append(line.split(','))
