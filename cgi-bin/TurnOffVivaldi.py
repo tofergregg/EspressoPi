@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import sys
 import subprocess
@@ -12,7 +12,7 @@ sys.stdout.write("Content-Type: text/html")
 sys.stdout.write("\r\n")
 sys.stdout.write("\r\n")
 
-subprocess.check_output(["gpio-admin", "export", "10"])
+subprocess.check_output(["/usr/local/bin/gpio-admin", "export", "10"])
 
 with open("/sys/devices/virtual/gpio/gpio10/direction","w") as f:
 	f.write("out\n");
@@ -25,6 +25,6 @@ time.sleep(1);
 with open("/sys/devices/virtual/gpio/gpio10/value","w") as f:
 	f.write("0\n"); # turn off pin
 
-subprocess.check_output(["gpio-admin", "unexport", "10"])
+subprocess.check_output(["/usr/local/bin/gpio-admin", "unexport", "10"])
 
 print "Turned off Espresso Machine"

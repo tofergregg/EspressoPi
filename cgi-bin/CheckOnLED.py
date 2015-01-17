@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 import sys
 import subprocess
@@ -24,7 +24,7 @@ except KeyError:
 
 # set the pin as an export pin
 try:
-	subprocess.check_output(["gpio-admin", "export", pin,"pulldown"])
+	subprocess.check_output(["/usr/local/bin/gpio-admin", "export", pin,"pulldown"])
 except subprocess.CalledProcessError, e:
 	pass # might already be set as export pin
 
@@ -36,7 +36,8 @@ offCount = 0
 
 checkCount = 0
 totalCount = 0
-while checkCount < 20:
+numChecks=40
+while checkCount < numChecks:
 	totalCount += 1
 	if totalCount == 100:
 		# can't seem to check
@@ -54,13 +55,18 @@ while checkCount < 20:
 		print "can't check...retrying"
 	time.sleep(0.1);
 
-subprocess.check_output(["gpio-admin", "unexport", pin])
+subprocess.check_output(["/usr/local/bin/gpio-admin", "unexport", pin])
+perc = onCount/float(numChecks)
 
 print "pin:",pin
 print "onCount:",onCount
 print "offCount:",offCount
+print "numChecks:",numChecks
+print "onCount/numChecks:",perc
+
 if onCount > 0 and offCount > 0: # either blinking or ON
-	if onCount < 13:
+	# heuristic necessary: perc = onCount/float(numChecks) 
+	if perc < 0.60:
 		print "Blinking"
 	else:
 		print "On"
