@@ -1,6 +1,6 @@
 Monday,5,30,AM,false,(Steam)
 Tuesday,5,30,AM,false,(Steam)
-Wednesday,6,30,AM,false,(Steam)
+Wednesday,5,30,AM,false,(Steam)
 Thursday,5,50,AM,false,(Steam)
 Friday,5,30,AM,false,(Steam)
 Saturday,6,45,AM,false,(Steam)
