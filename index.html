@@ -161,9 +161,11 @@ function onButton(){
 			function (data){
 				console.log(data);
 				//alert(data);
-				checkLED("on_button"); // check ON LED
+				// because the on button goes off during turn-on (!)
+				// we need to wait five seconds before checking to
+				// ensure we're correct.
+				setTimeout(function() { checkLED("on_button"); }, 5000);
 				checkLED("steam_button"); // check Steam LED
-
     			});
     	}
     	else {
